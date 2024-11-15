@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "120082651801",
+    "project_id": "locationsources",
+    "storage_bucket": "locationsources.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120082651801:android:ae01fd5a50d60834493608",
+        "android_client_info": {
+          "package_name": "com.libertyinfosace.locationsource"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Gig2nt0gxBECTZN0dPIUVDpSqtK5KUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.home.LocationSourceScreenActivity">
+
+    <!-- TOOLBAR -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLocationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llLocationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+        <!-- APP BUTTON -->
+        <ImageView
+            android:id="@+id/ivApp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:importantForAccessibility="auto"
+            app:layout_constraintEnd_toStartOf="@+id/tvToolbarName"
+            android:src="@drawable/ic_location_source_app_icon" />
+
+        <!-- SCREEN NAME -->
+        <TextView
+            android:id="@+id/tvToolbarName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/app_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivSort"
+            app:layout_goneMarginEnd="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivApp" />
+
+        <!-- SORT BUTTON -->
+        <ImageView
+            android:id="@+id/ivSort"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/sort_location"
+            android:importantForAccessibility="auto"
+            android:src="@drawable/ic_sort_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvToolbarName"
+            android:visibility="gone"
+            app:tint="@color/app_primary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- INFO VIEW -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clInfoView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvLocationToolbar">
+
+            <!-- APP LOGO -->
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_location_source_app_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvInfo"/>
+
+        <!-- INFO MESSAGE -->
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/no_place_available_n_let_s_start_by_adding_few_places"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- ADD LOCATION -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/app_primary"
+            android:background="@drawable/ic_bg_btn_border"
+            android:text="@string/add_poi"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- LOCATION VIEW -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clLocationViews"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        tools:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/cvLocationToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- ADDED LOCATION PLACES LIST -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:itemCount="4"
+            android:layout_margin="8dp"
+            tools:listitem="@layout/item_location_list"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddMoreLocation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- ADD MORE LOCATION -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddMoreLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/ic_bg_btn_filled"
+            android:text="@string/add_poi"
+            android:textAllCaps="false"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- DIRECTION LOGO -->
+    <ImageView
+        android:id="@+id/ivDirectionLogo"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="100dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_direction"
+        android:layout_marginEnd="24dp"
+        android:visibility="gone"
+        tools:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tint="@color/app_primary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
