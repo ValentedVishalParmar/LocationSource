@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="locationData"
+            type="com.libertyinfosace.locationsource.data.local.model.LocationDataEntity" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- PLACE NAME -->
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:maxWidth="250dp"
+                        android:maxLines="2"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Ahmedabad" />
+
+                    <!-- IS PRIMARY LOCATION -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnPrimaryLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_margin="4dp"
+                        android:minWidth="70dp"
+                        android:padding="2dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/ic_bg_btn_filled"
+                        android:text="@string/primary"
+                        android:textAllCaps="false"
+                        app:layout_constraintTop_toBottomOf="@+id/tvInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!-- ADDRESS -->
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:layout_margin="4dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    tools:text="Vastrapur Lake, Ahmedabad, Gujrat, 380001"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                <!-- DISTANCE -->
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:textAlignment="textStart"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/distance_f_km" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_weight="1.6"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- EDIT BUTTON -->
+                <ImageView
+                    android:id="@+id/ivEdit"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/delete_location"
+                    android:importantForAccessibility="auto"
+                    android:padding="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_edit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivDelete"
+                    app:tint="@color/app_primary" />
+
+                <!-- DELETE BUTTON -->
+                <ImageView
+                    android:id="@+id/ivDelete"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/delete_location"
+                    android:importantForAccessibility="auto"
+                    android:padding="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_delete_location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/app_primary" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
